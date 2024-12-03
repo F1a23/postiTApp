@@ -1,12 +1,13 @@
 import logo from "../Images/logo-t.png";
 import Posts from "./Posts";
 import SharePosts from "./SharePost";
+import Location from "./Location";
 import User from "./User";
 import { Container, Row, Col } from "reactstrap"; //import the Reactstrap Components
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import Location from "./Location";
+
 const Home = () => {
   const email = useSelector((state) => state.users.user.email);
   const navigate = useNavigate();
@@ -18,15 +19,15 @@ const Home = () => {
   }, [email]);
 
   return (
-    <>
+    <Container className="form-groupsn">
+      <br></br>
+      <br></br>
       <Row>
-        <Col md={3}>
-          <User />
-        </Col>
-        <Col md={9}>
+        <Col md={8}>
           <SharePosts />
         </Col>
       </Row>
+      <br></br>
       <Row>
         <Col md={3}>
           <Location />
@@ -35,7 +36,7 @@ const Home = () => {
           <Posts />
         </Col>
       </Row>
-    </>
+    </Container>
   );
 };
 
